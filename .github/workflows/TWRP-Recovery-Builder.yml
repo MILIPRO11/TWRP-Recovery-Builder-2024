@@ -6,46 +6,39 @@ on:
       MANIFEST_BRANCH:
         description: 'TWRP Minimal-Manifest Branch'
         required: true
-        default: ''
-        type: choice
-        options:
-        - twrp-14.1
-        - twrp-12.1
-        - twrp-11
-        - twrp-9.0
+        default: 'https://github.com/MILIPRO11/android_device_samsung_m13'
+        type: twrp-14
       DEVICE_TREE:
         description: 'Custom Recovery Tree' 
         required: true
-        default: 'https://github.com/kinguser981/cap_sprout_twrp'
+        default: 'https://github.com/MILIPRO11/android_device_samsung_m13'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch' 
         required: true
-        default: 'android-12.1'
+        default: 'android-14'
       DEVICE_PATH:
         description: 'Specify your Device Path' 
         required: true
-        default: 'device/nokia/cap_sprout'
+        default: 'device/samsung/galaxy/m135f'
       DEVICE_NAME:
         description: 'Specify your Device Codename' 
         required: true
-        default: 'cap_sprout'
+        default: 'galaxy/m13'
       BUILD_TARGET:
         description: 'Specify your Build Target' 
         required: true
         default: 'recovery'
-        type: choice
+        type: recovery
         options:
-        - boot
         - recovery
-        - vendorboot
       LDCHECK:
         description: 'Path of blobs to check' 
         required: true
         default: 'system/bin/qseecomd'
       RECOVERY_TAR:
         description: 'Release Recovery.tar For Samsung devices'
-        required: false
-        default: false
+        required: true
+        default: true
         type: boolean
       RECOVERY_INSTALLER:
         description: 'Include recovery installer.zip'
@@ -55,10 +48,10 @@ on:
 jobs:
   build:
     name: Build TWRP by ${{ github.actor }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ B5TE6BT564EWLU4E5ATFQPTJQMCHW }}
     permissions:
       contents: write
     steps:
@@ -85,7 +78,7 @@ jobs:
     - name: Set Swap Space
       uses: pierotofy/set-swap-space@master
       with:
-        swap-size-gb: 24
+        swap-size-gb: 1
         
     - name: Prepare the environment
       run: |
