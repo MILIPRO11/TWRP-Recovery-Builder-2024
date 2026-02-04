@@ -24,12 +24,12 @@ on:
       DEVICE_PATH:
         description: 'Specify your Device Path' 
         required: true
-        default: 'device/samsung/galaxy/m135f'
-      DEVICE_NAME:
+        default: 'android/device/samsung/m13'
+      DEVICE_NAME: 
         description: 'Specify your Device Codename' 
         required: true
         default: 'm13'
-      BUILD_TARGET:
+      BUILD_TARGET: 'm13'
         description: 'Specify your Build Target' 
         required: true
         default: 'recovery'
